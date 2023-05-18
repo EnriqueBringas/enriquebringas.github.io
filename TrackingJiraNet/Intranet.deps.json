@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Intranet/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.SpaProxy": "6.0.15"
+        },
+        "runtime": {
+          "Intranet.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.SpaProxy/6.0.15": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.SpaProxy.dll": {
+            "assemblyVersion": "6.0.15.0",
+            "fileVersion": "6.0.1523.12404"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Intranet/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.SpaProxy/6.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-99fd1XM9FrUHlruqjpwEWJsWqmQjS6AaO61+sv/7/Q65DQiC7LZbgnLw94Qmgi9hTTqqf6q1tTy6AQPliTJ25g==",
+      "path": "microsoft.aspnetcore.spaproxy/6.0.15",
+      "hashPath": "microsoft.aspnetcore.spaproxy.6.0.15.nupkg.sha512"
+    }
+  }
+}
