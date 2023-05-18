@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Main>
+  <Structure>
+    <Line>services.AddSingleton&#60;I</Line>
+    <Line value="tablename">Service, </Line>
+    <Line value="tablename">Service&#62;();</Line>
+    <Line value="@newline"></Line>
+  </Structure>
+</Main>

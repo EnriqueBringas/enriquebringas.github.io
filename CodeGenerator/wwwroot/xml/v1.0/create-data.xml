@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Main>
+  <Structure file="tablename" after="DO">
+    <Line>namespace </Line>
+    <Line value="@setting" get="namespacedata"></Line>
+    <Line value="@newline"></Line>
+    <Line>{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using </Line>
+    <Line value="@setting" get="namespaceentities"></Line>
+    <Line>;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using IdeasLokas.Corp.Common.Utility.Context;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using IdeasLokas.Corp.Common.Utility.Helpers;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using Microsoft.Data.SqlClient;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using System;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using System.Collections.Generic;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using System.Linq;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">public class </Line>
+    <Line value="tablename">DO : DataContext</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public </Line>
+    <Line value="tablename">DO(string tracking, SqlConnection connection) : base(tracking, connection, "</Line>
+    <Line value="schemaname">") { }</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">~</Line>
+    <Line value="tablename">DO()</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">Dispose(false);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public bool Insert(</Line>
+    <Line value="tablename"> objInput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">bool lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lprocedure = string.Format("{0}.{1}", Schema, "</Line>
+    <Line value="@setting" get="aliassp"></Line>
+    <Line value="tablename">_ins");</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lparams = new object[] { </Line>
+    <Line>
+      <Loop value="fields" filter="isidentity" containt="false">
+        <Item>objInput.</Item>
+        <Item value="fieldname"></Item>
+        <Item>, </Item>
+      </Loop>
+    </Line>
+    <Line>null };</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">SqlTools.ExecuteNonQueryByProcedure(ConnectionMe, lprocedure, lparams);</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = (int)lparams.LastOrDefault() > 0;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">throw new Exception(ex.Message);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">ConnectionMe.Close();</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public bool Update(</Line>
+    <Line value="tablename"> objInput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">bool lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lprocedure = string.Format("{0}.{1}", Schema, "</Line>
+    <Line value="@setting" get="aliassp"></Line>
+    <Line value="tablename">_upd");</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lparams = new object[] { </Line>
+    <Line>
+      <Loop value="fields">
+        <Item>objInput.</Item>
+        <Item value="fieldname"></Item>
+        <Item>, </Item>
+      </Loop>
+    </Line>
+    <Line>null };</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">SqlTools.ExecuteNonQueryByProcedure(ConnectionMe, lprocedure, lparams);</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = (int)lparams.LastOrDefault() > 0;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">throw new Exception(ex.Message);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">ConnectionMe.Close();</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public bool Delete(</Line>
+    <Line value="tablename"> objInput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">bool lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lprocedure = string.Format("{0}.{1}", Schema, "</Line>
+    <Line value="@setting" get="aliassp"></Line>
+    <Line value="tablename">_del");</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lparams = new object[] { </Line>
+    <Line>
+      <Loop value="fields" filter="isprimarykey" containt="true">
+        <Item>objInput.</Item>
+        <Item value="fieldname"></Item>
+        <Item>, </Item>
+      </Loop>
+    </Line>
+    <Line>null };</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">SqlTools.ExecuteNonQueryByProcedure(ConnectionMe, lprocedure, lparams);</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = (int)lparams.LastOrDefault() > 0;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">throw new Exception(ex.Message);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">ConnectionMe.Close();</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public List&#60;</Line>
+    <Line value="tablename">&#62; Select()</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">List&#60;</Line>
+    <Line value="tablename">&#62; lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lprocedure = string.Format("{0}.{1}", Schema, "</Line>
+    <Line value="@setting" get="aliassp"></Line>
+    <Line value="tablename">_sel");</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lreader = SqlTools.ExecuteReaderByProcedure(ConnectionMe, lprocedure);</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = lreader.HasRows ? lreader.HydrateRows&#60;</Line>
+    <Line value="tablename">&#62;().ToList() : null;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">throw new Exception(ex.Message);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">ConnectionMe.Close();</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public </Line>
+    <Line value="tablename"> SelectBy(</Line>
+    <Line value="tablename"> objInput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3"></Line>
+    <Line value="tablename"> lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lprocedure = string.Format("{0}.{1}", Schema, "</Line>
+    <Line value="@setting" get="aliassp"></Line>
+    <Line value="tablename">_selby");</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lparams = new object[] { </Line>
+    <Line>
+      <Loop value="fields" filter="isprimarykey" containt="true">
+        <Item>objInput.</Item>
+        <Item value="fieldname"></Item>
+        <Item notlast="true">, </Item>
+      </Loop>
+    </Line>
+    <Line> };</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">var lreader = SqlTools.ExecuteReaderByProcedure(ConnectionMe, lprocedure, lparams);</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = lreader.HasRows ? lreader.HydrateFields&#60;</Line>
+    <Line value="tablename">&#62;() : null;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">throw new Exception(ex.Message);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">ConnectionMe.Close();</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">}</Line>
+    <Line value="@newline"></Line>
+    <Line>}</Line>
+  </Structure>
+</Main>

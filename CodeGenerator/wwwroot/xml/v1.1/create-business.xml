@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Main>
+  <Structure file="tablename" after="BL">
+    <Line>namespace </Line>
+    <Line value="@setting" get="namespacebusiness"></Line>
+    <Line value="@newline"></Line>
+    <Line>{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using </Line>
+    <Line value="@setting" get="namespacedata"></Line>
+    <Line>;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using </Line>
+    <Line value="@setting" get="namespaceentities"></Line>
+    <Line>;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using IdeasLokas.Corp.Common.Models;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using IdeasLokas.Corp.Common.Utility.Context;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using IdeasLokas.Corp.Common.Utility.Helpers;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using System;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">using System.Collections.Generic;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">public class </Line>
+    <Line value="tablename">BL : BusinessContext</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public </Line>
+    <Line value="tablename">BL(string application, string tracking, string connectionstring) : base(application, tracking, connectionstring) { }</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">~</Line>
+    <Line value="tablename">BL()</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">Dispose(false);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public Status Insert(</Line>
+    <Line value="tablename"> objInput, out bool objOutput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">var lrespuesta = new Status();</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">objOutput = false;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">using (var lmethod = new </Line>
+    <Line value="tablename">DO(Tracking, ConnectionMe))</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="5">objOutput = lmethod.Insert(objInput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = new Status(ex);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta.Ok = !Tools.IsNullOrEmpty(objOutput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public Status Update(</Line>
+    <Line value="tablename"> objInput, out bool objOutput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">var lrespuesta = new Status();</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">objOutput = false;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">using (var lmethod = new </Line>
+    <Line value="tablename">DO(Tracking, ConnectionMe))</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="5">objOutput = lmethod.Update(objInput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = new Status(ex);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta.Ok = !Tools.IsNullOrEmpty(objOutput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public Status Delete(</Line>
+    <Line value="tablename"> objInput, out bool objOutput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">var lrespuesta = new Status();</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">objOutput = false;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">using (var lmethod = new </Line>
+    <Line value="tablename">DO(Tracking, ConnectionMe))</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="5">objOutput = lmethod.Delete(objInput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = new Status(ex);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta.Ok = !Tools.IsNullOrEmpty(objOutput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public Status Select(out List&#60;</Line>
+    <Line value="tablename">&#62; objOutput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">var lrespuesta = new Status();</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">objOutput = null;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">using (var lmethod = new </Line>
+    <Line value="tablename">DO(Tracking, ConnectionMe))</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="5">objOutput = lmethod.Select();</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = new Status(ex);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta.Ok = !Tools.IsNullOrEmpty(objOutput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">public Status SelectBy(</Line>
+    <Line value="tablename"> objInput, out </Line>
+    <Line value="tablename"> objOutput)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">var lrespuesta = new Status();</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">objOutput = null;</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">try</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">using (var lmethod = new </Line>
+    <Line value="tablename">DO(Tracking, ConnectionMe))</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="5">objOutput = lmethod.SelectBy(objInput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">catch (Exception ex)</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta = new Status(ex);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">finally</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">{</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="4">lrespuesta.Ok = !Tools.IsNullOrEmpty(objOutput);</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">}</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+    <Line spaces="3">return lrespuesta;</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="2">}</Line>
+    <Line value="@newline"></Line>
+    <Line spaces="1">}</Line>
+    <Line value="@newline"></Line>
+    <Line>}</Line>
+  </Structure>
+</Main>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Main>
+  <Structure>
+    <Line>/********************************************************************/</Line>
+    <Line value="@newline"></Line>
+    <Line>-- Responsable : </Line>
+    <Line value="@setting" get="author"></Line>
+    <Line value="@newline"></Line>
+    <Line>-- Fecha de creación : </Line>
+    <Line value="@today"></Line>
+    <Line value="@newline"></Line>
+    <Line>/********************************************************************/</Line>
+    <Line value="@newline"></Line>
+    <Line>create schema [</Line>
+    <Line value="schemaname"></Line>
+    <Line>]</Line>
+    <Line value="@newline"></Line>
+    <Line>go</Line>
+    <Line value="@newline"></Line>
+    <Line value="@newline"></Line>
+  </Structure>
+</Main>
